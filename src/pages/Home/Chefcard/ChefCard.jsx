@@ -1,4 +1,5 @@
 import React from "react";import { FaRegThumbsUp } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const ChefCard = ({ data }) => {
   const {
     bio,
@@ -8,6 +9,7 @@ const ChefCard = ({ data }) => {
     picture,
     recipes,
     years_experience,
+    _id
   } = data;
 
   return (
@@ -29,7 +31,7 @@ const ChefCard = ({ data }) => {
                 <p>{likes} </p>
             </div>
             <div className="card-actions">
-                <button className="btn btn-error">View Recipes</button>
+                <button className="btn btn-error"><Link to={`/chef/${_id}`}>View Recipes</Link></button>
             </div>
         </div>
       </div>
