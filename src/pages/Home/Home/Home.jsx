@@ -4,7 +4,7 @@ import ChefCard from '../Chefcard/ChefCard';
 
 const Home = () => {
     const loader=useLoaderData();
-    console.log(loader)
+    // console.log(loader)
     return (
         <div className='min-h-[83vh]'>
             {/* Hero section  */}

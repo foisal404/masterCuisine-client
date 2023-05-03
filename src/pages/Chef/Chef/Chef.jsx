@@ -1,9 +1,18 @@
 import React from 'react';
+import ChefDetails from '../ChefDetails/ChefDetails';
+import { useLoaderData } from 'react-router-dom';
 
 const Chef = () => {
+    const loader=useLoaderData();
+    const {details,recipie}=loader
+    // console.log(details);
+    // console.log(recipie);
     return (
         <div>
-            <h2>this is chef</h2>
+            <ChefDetails data={details}></ChefDetails>
+            {
+                recipie.map(res=><p>{res._id}</p>)
+            }
         </div>
     );
 };

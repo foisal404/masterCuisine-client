@@ -3,6 +3,7 @@ import Main from "../../layout/Main";
 import Home from "../../pages/Home/Home/Home";
 import ChefLayout from "../../layout/ChefLayout";
 import Chef from "../../pages/Chef/Chef/Chef";
+import handlerRecipies from "../../Hooks/Hooks";
 
 export const router = createBrowserRouter([
     {
@@ -22,7 +23,8 @@ export const router = createBrowserRouter([
         children:[
             {
                 path:'/chef/:id',
-                element:<Chef></Chef>
+                element:<Chef></Chef>,
+                loader:({params})=> handlerRecipies(params.id)
             }
         ]
     }
