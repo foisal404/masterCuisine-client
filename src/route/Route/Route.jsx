@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
 import Home from "../../pages/Home/Home/Home";
+import ChefLayout from "../../layout/ChefLayout";
+import Chef from "../../pages/Chef/Chef/Chef";
 
 export const router = createBrowserRouter([
     {
@@ -14,4 +16,14 @@ export const router = createBrowserRouter([
         }
       ]
     },
+    {
+        path:'/chef',
+        element:<ChefLayout></ChefLayout>,
+        children:[
+            {
+                path:'/chef/:id',
+                element:<Chef></Chef>
+            }
+        ]
+    }
   ]);
