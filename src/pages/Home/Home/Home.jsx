@@ -1,6 +1,10 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
+import ChefCard from '../Chefcard/ChefCard';
 
 const Home = () => {
+    const loader=useLoaderData();
+    console.log(loader)
     return (
         <div className='min-h-[83vh]'>
             {/* Hero section  */}
@@ -13,8 +17,14 @@ const Home = () => {
                         <button className="btn btn-error text-white">Get Started</button>
                         </div>
                     </div>
-                </div>
             </div>
+            {/* chef section  */}
+            <section>
+                {
+                    loader.map(load=><ChefCard key={load._id} data={load}></ChefCard>)
+                }
+            </section>
+        </div>
     );
 };
 
