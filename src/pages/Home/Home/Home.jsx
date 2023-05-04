@@ -9,14 +9,14 @@ const Home = () => {
     // console.log(loader)
     const [reviews,setReviews]=useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/reviews')
+        fetch('https://chef-recipe-hunter-server-foisal404.vercel.app/reviews')
         .then(res=>res.json())
         .then(data=>setReviews(data))
     },[])
 
     const [servies,setServies]=useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/services')
+        fetch('https://chef-recipe-hunter-server-foisal404.vercel.app/services')
         .then(res=>res.json())
         .then(data=>setServies(data))
     },[])

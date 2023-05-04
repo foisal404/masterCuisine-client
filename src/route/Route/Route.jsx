@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
         {
             path:"/",
             element:<Home></Home>,
-            loader:()=> fetch('http://localhost:5000/chefs')
+            loader:()=> fetch('https://chef-recipe-hunter-server-foisal404.vercel.app/chefs')
         },
         {
           path:'/login',
