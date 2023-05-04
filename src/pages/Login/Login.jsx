@@ -1,11 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
 
 const Login = () => {
     const {githubIN,googleIN,logIn}=useContext(AuthContext)
     const [error,setError]=useState("")
+    const location =useLocation();
+    console.log(location);
     const handleForm=event=>{
         event.preventDefault();
         setError('');

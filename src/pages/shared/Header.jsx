@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import ActiveLink from '../../components/ActiveLink/ActiveLink';
 import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     const {user,logOut}=useContext(AuthContext)
@@ -37,7 +38,7 @@ const Header = () => {
                         <li><a>Item 3</a></li>
                     </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">Master Cuisine</a>
+                    <a className="btn btn-ghost normal-case text-xl"><Link to='/'>Master Cuisine</Link></a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 flex flex-row gap-6">
