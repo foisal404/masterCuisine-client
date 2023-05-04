@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ActiveLink from '../../components/ActiveLink/ActiveLink';
+import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
 
 const Header = () => {
+    const {user,logOut}=useContext(AuthContext)
+    const handleLogout=()=>{
+        logOut()
+        .then(()=>{
+            console.log("log out sucessfullly");
+        })
+        .catch(error=>{
+            console.error(error.message);
+        })
+    }
     return (
         <nav>
             <div className="navbar bg-base-300">
@@ -39,7 +50,9 @@ const Header = () => {
                         <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                         </div>
                     </label>
-                    <button className='bg-slate-500 text-white px-3 py-2 rounded'><ActiveLink to='/login'>login</ActiveLink></button>
+                    {
+                        user?<span>{user.email} <button className='btn-success p-2 px-3 rounded' onClick={handleLogout}>Logout</button></span>:<button className='bg-slate-500 text-white px-3 py-2 rounded'><ActiveLink to='/login'>login</ActiveLink></button>
+                    }
                 </div>
             </div>
         </nav>
