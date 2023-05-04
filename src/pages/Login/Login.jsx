@@ -5,9 +5,10 @@ import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
 
 const Login = () => {
     const {githubIN,googleIN,logIn}=useContext(AuthContext)
-    // const [error,setError]=useState("")
+    const [error,setError]=useState("")
     const handleForm=event=>{
         event.preventDefault();
+        setError('');
         const form=event.target;
         const email=form.email.value;
         const password=form.password.value;
@@ -20,6 +21,7 @@ const Login = () => {
             console.log('successful login');
         })
         .catch(error=>{
+            setError(error.message.slice(22))
             console.error(error.message);
         })
         
@@ -52,6 +54,10 @@ const Login = () => {
                 <div className="hero-content flex-col ">
                     <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Login now!</h1>
+                    {/* error text  */}
+                    {
+                        <p className='text-center text-red-400 my-5'>{error}</p>
+                    }
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form className="card-body pb-3" onSubmit={handleForm}>
