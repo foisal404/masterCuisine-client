@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import {  FaRegHeart, FaRegStar, FaStar } from 'react-icons/fa';
 import Rating from 'react-rating';
+import { toast } from 'react-toastify';
 
 const RecipiesCard = ({data}) => {
     const [fav,setFav]=useState(true)
     const handlerFav=()=>{
         setFav(!fav)
+        toast("added to favorite",{theme: "dark"})
     }
     const {
         _id,
