@@ -14,7 +14,7 @@ const ChefCard = ({ data }) => {
 
   return (
     <div className="">
-      <div className="card w-96 mx-auto my-8 bg-base-100 shadow-xl">
+      <div className="card md:w-96 mx-auto my-8 bg-base-100 shadow-xl">
         <figure>
           <img
             src={picture}

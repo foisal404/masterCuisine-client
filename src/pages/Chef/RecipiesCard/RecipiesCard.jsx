@@ -20,7 +20,7 @@ const RecipiesCard = ({data}) => {
     return (
         <div className='p-4 mx-40 bg-slate-200 m-5 rounded'>
             <div className='flex justify-between gap-5'>
-                <img className='h-44 w-44' src={food_img} alt="" />
+                <img className='h-44 w-full' src={food_img} alt="" />
                 <div className='mb-auto'>
                     <p className='card-title text-orange-500'>{name}</p>
                     <p className='font-semibold text-yellow-500'>{cooking_method}</p>

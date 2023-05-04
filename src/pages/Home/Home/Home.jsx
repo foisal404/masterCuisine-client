@@ -37,7 +37,7 @@ const Home = () => {
             {/* service section  */}
             <section className='bg-slate-100 p-5 '>
                 <h2 className='text-center text-4xl font-bold'>Available Services</h2>
-                <div className=' grid grid-cols-3 gap-4 p-5'>
+                <div className=' grid grid-cols-1 lg:grid-cols-3 gap-4 p-5'>
                     {
                         servies?.map(load=><Service key={load.id} data={load}></Service>)
                     }
@@ -55,7 +55,7 @@ const Home = () => {
             {/* review section  */}
             <section className='bg-slate-100 p-5 my-5'>
                 <h2 className='text-center text-4xl font-bold'>Review & Ratings </h2>
-                <div className=' grid grid-cols-3 gap-4 p-5'>
+                <div className=' grid grid-cols-1 lg:grid-cols-3 gap-4 p-5'>
                     {
                         reviews?.map(load=><Review key={load.id} data={load}></Review>)
                     }
