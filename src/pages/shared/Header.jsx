@@ -4,6 +4,7 @@ import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
 
 const Header = () => {
     const {user,logOut}=useContext(AuthContext)
+    console.log(user);
     const handleLogout=()=>{
         logOut()
         .then(()=>{
@@ -47,7 +48,7 @@ const Header = () => {
                 <div className="navbar-end">
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
-                        <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                        <img src={user?.photoURL} />
                         </div>
                     </label>
                     {

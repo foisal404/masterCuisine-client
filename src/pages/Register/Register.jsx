@@ -26,16 +26,7 @@ const Register = () => {
             setError('password at least 6 charecter')
             return
         }
-        if(name && photo){
-            updateUser(name,photo)
-            .then(()=>{
-                console.log("success");
-            })
-            .catch((error) => {
-                // An error occurred
-                console.error(error.message);
-              });
-        }
+        
         // console.log('submit form',email,password,photo,name)
 
         SignUp(email,password)
@@ -43,8 +34,20 @@ const Register = () => {
             const loggUser=result.user;
             console.log(loggUser)
             console.log('successful sign up');
+            if(name && photo){
+                updateUser(name,photo)
+                .then((result)=>{
+                    console.log("success");
+                    console.log(result.user);
+                })
+                .catch((error) => {
+                    // An error occurred
+                    console.error(error.message);
+                  });
+            }
         })
         .catch(error=>{
+            setError(error.message.slice(22))
             console.error(error.message);
         })
     }
