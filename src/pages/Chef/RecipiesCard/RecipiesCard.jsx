@@ -1,5 +1,6 @@
 import React from 'react';
-import {  FaRegHeart } from 'react-icons/fa';
+import {  FaRegHeart, FaRegStar, FaStar } from 'react-icons/fa';
+import Rating from 'react-rating';
 
 const RecipiesCard = ({data}) => {
     const {
@@ -20,7 +21,14 @@ const RecipiesCard = ({data}) => {
                     <p > <span className='font-semibold text-green-600'>Ingredients :</span> {ingredients}</p>
                 </div>
                 <div className='flex flex-col justify-center'>
-                    <p>{rating}</p>
+                    <p>
+                        <Rating placeholderRating={rating}
+                            emptySymbol={<FaRegStar/>}
+                            placeholderSymbol={<FaStar/>}
+                            fullSymbol={<FaStar/>}
+                            readonly
+                        />
+                        {rating}</p>
                     <button className='btn-error flex items-center w-full justify-center p-3 rounded'><FaRegHeart className='mx-3'></FaRegHeart> Favorite</button>
                 </div>
             </div>
