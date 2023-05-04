@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {  FaRegHeart, FaRegStar, FaStar } from 'react-icons/fa';
 import Rating from 'react-rating';
 
 const RecipiesCard = ({data}) => {
+    const [fav,setFav]=useState(true)
+    const handlerFav=()=>{
+        setFav(!fav)
+    }
     const {
         _id,
         ingredients,
@@ -29,7 +33,7 @@ const RecipiesCard = ({data}) => {
                             readonly
                         />
                         {rating}</p>
-                    <button className='btn-error flex items-center w-full justify-center p-3 rounded'><FaRegHeart className='mx-3'></FaRegHeart> Favorite</button>
+                    <button className={`btn-error flex items-center w-full justify-center p-3 rounded ${fav?"":'btn-disabled'}`} onClick={handlerFav}><FaRegHeart className='mx-3'></FaRegHeart> Favorite</button>
                 </div>
             </div>
         </div>
