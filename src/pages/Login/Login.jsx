@@ -4,14 +4,36 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
 
 const Login = () => {
-    const {value}=useContext(AuthContext)
-    console.log(value)
+    const {githubIN,googleIN}=useContext(AuthContext)
     const handleForm=event=>{
         event.preventDefault();
         const form=event.target;
         const email=form.email.value;
         const password=form.password.value;
         console.log('submit form',email,password)
+        
+    }
+    const handlerGithub=()=>{
+        githubIN()
+        .then(result=>{
+            const loggUser=result.user;
+            console.log(loggUser)
+            console.log('successful login');
+        })
+        .catch(error=>{
+            console.error(error.message);
+        })
+    }
+    const handlerGoogle=()=>{
+        googleIN()
+        .then(result=>{
+            const loggUser=result.user;
+            console.log(loggUser)
+            console.log('successful login');
+        })
+        .catch(error=>{
+            console.error(error.message);
+        })
     }
     return (
         <div>
@@ -43,8 +65,8 @@ const Login = () => {
                         
                         
                         <div className='card-body py-5'>
-                            <button className="btn btn-outline"><FaGoogle/> Login With Google</button>
-                            <button className="btn btn-outline"><FaGithub/> Login with Github</button>
+                            <button className="btn btn-outline" onClick={handlerGoogle}><FaGoogle/> Login With Google</button>
+                            <button className="btn btn-outline" onClick={handlerGithub}><FaGithub/> Login with Github</button>
                         </div>
                     
                     </div>
