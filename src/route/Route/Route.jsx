@@ -4,11 +4,13 @@ import Home from "../../pages/Home/Home/Home";
 import ChefLayout from "../../layout/ChefLayout";
 import Chef from "../../pages/Chef/Chef/Chef";
 import handlerRecipies from "../../Hooks/Hooks";
+import Errorpage from "../../components/ErrorPage/Errorpage";
 
 export const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
+      errorElement:<Errorpage></Errorpage>,
       children:[
         {
             path:"/",
@@ -20,6 +22,7 @@ export const router = createBrowserRouter([
     {
         path:'/chef',
         element:<ChefLayout></ChefLayout>,
+        errorElement:<Errorpage>Chef Id not found</Errorpage>,
         children:[
             {
                 path:'/chef/:id',
