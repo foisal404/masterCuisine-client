@@ -14,7 +14,7 @@ const ChefDetails = ({data}) => {
     return (
         <div>
             {/* top banner */}
-            <div className='min-h-[83vh] p-5'>
+            <div className='p-5'>
                 <div className="card card-side bg-base-100 shadow-xl my-5 p-5">
                     <figure><img className='h-80 w-72' src={picture} alt="Movie"/></figure>
                     <div className="card-body">

@@ -19,7 +19,7 @@ const Home = () => {
                     </div>
             </div>
             {/* chef section  */}
-            <section className='p-5 grid grid-cols-2 gap-4 bg-slate-100'>
+            <section className='p-5 grid grid-cols-3 gap-4 bg-slate-100'>
                 {
                     loader.map(load=><ChefCard key={load._id} data={load}></ChefCard>)
                 }
