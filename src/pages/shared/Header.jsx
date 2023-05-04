@@ -61,7 +61,7 @@ const Header = () => {
                                 }
                                 <button className='btn-success p-2 px-3 rounded' onClick={handleLogout}>Logout</button> 
                             </div>:
-                            <button className='bg-slate-500 text-white px-3 py-2 rounded'><ActiveLink to='/login'>login</ActiveLink></button>
+                            <ActiveLink to='/login'><button className='bg-slate-500 text-white px-7 py-2 rounded'>login</button></ActiveLink>
                     }
                 </div>
             </div>

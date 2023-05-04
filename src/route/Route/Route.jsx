@@ -8,6 +8,7 @@ import Errorpage from "../../components/ErrorPage/Errorpage";
 import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
 import Blog from "../../pages/Blog/Blog";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -41,7 +42,7 @@ export const router = createBrowserRouter([
         children:[
             {
                 path:'/chef/:id',
-                element:<Chef></Chef>,
+                element:<PrivateRoute><Chef></Chef></PrivateRoute>,
                 loader:({params})=> handlerRecipies(params.id)
             }
         ]
