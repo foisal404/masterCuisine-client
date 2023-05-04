@@ -14,6 +14,7 @@ const Register = () => {
         const name=form.name.value;
         const photo=form.photo.value;
         
+        
         if(!email){
             setError('please enter email')
             return
@@ -22,6 +23,8 @@ const Register = () => {
             setError('please enter password')
             return
         }
+        
+        
         if(password.length<6){
             setError('password at least 6 charecter')
             return

@@ -4,7 +4,7 @@ import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
 
 const Header = () => {
     const {user,logOut}=useContext(AuthContext)
-    console.log(user);
+    // console.log(user?.photoUrl);
     const handleLogout=()=>{
         logOut()
         .then(()=>{
@@ -46,13 +46,22 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                        <div className="w-10 rounded-full">
-                        <img src={user?.photoURL} />
-                        </div>
-                    </label>
+                    
                     {
-                        user?<span>{user.email} <button className='btn-success p-2 px-3 rounded' onClick={handleLogout}>Logout</button></span>:<button className='bg-slate-500 text-white px-3 py-2 rounded'><ActiveLink to='/login'>login</ActiveLink></button>
+                        user?<div className='flex items-center ' >
+
+                                {
+                                    user?.photoURL ? 
+                                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom" data-tip={user?.displayName}>
+                                        <div className="w-10 rounded-full " >
+                                            <img src={user?.photoURL} />
+                                        </div>
+                                        </label>
+                                        : <h2>{user?.email}</h2>
+                                }
+                                <button className='btn-success p-2 px-3 rounded' onClick={handleLogout}>Logout</button> 
+                            </div>:
+                            <button className='bg-slate-500 text-white px-3 py-2 rounded'><ActiveLink to='/login'>login</ActiveLink></button>
                     }
                 </div>
             </div>
