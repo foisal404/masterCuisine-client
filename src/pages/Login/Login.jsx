@@ -1,15 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
 
 const Login = () => {
     const {githubIN,googleIN,logIn}=useContext(AuthContext)
+    // const [error,setError]=useState("")
     const handleForm=event=>{
         event.preventDefault();
         const form=event.target;
         const email=form.email.value;
         const password=form.password.value;
+        
         // console.log('submit form',email,password)
         logIn(email,password)
         .then(result=>{
@@ -58,14 +60,14 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" name='email' placeholder="email" className="input input-bordered" />
+                                <input type="email" name='email' placeholder="email" className="input input-bordered" required/>
                             </div>
                             {/* password  */}
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" name='password' placeholder="password" className="input input-bordered" />
+                                <input type="password" name='password' placeholder="password" className="input input-bordered" required/>
                                 
                             </div>
                             <p className='text-xs'>New here?<Link className='text-orange-400' to='/register'>Register</Link></p>
