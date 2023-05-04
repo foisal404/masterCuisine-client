@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ChefCard from '../Chefcard/ChefCard';
+import Review from '../Review/Review';
+import Service from '../Service/Service';
 
 const Home = () => {
     const loader=useLoaderData();
     // console.log(loader)
+    const [reviews,setReviews]=useState([])
+    useEffect(()=>{
+        fetch('http://localhost:5000/reviews')
+        .then(res=>res.json())
+        .then(data=>setReviews(data))
+    },[])
+
+    const [servies,setServies]=useState([])
+    useEffect(()=>{
+        fetch('http://localhost:5000/services')
+        .then(res=>res.json())
+        .then(data=>setServies(data))
+    },[])
+    // console.log(reviews);
     return (
         <div className='min-h-[83vh]'>
             {/* Hero section  */}
@@ -18,12 +34,35 @@ const Home = () => {
                         </div>
                     </div>
             </div>
-            {/* chef section  */}
-            <section className='p-5 grid grid-cols-3 gap-4 bg-slate-100'>
-                {
-                    loader.map(load=><ChefCard key={load._id} data={load}></ChefCard>)
-                }
+            {/* service section  */}
+            <section className='bg-slate-100 p-5 '>
+                <h2 className='text-center text-4xl font-bold'>Available Services</h2>
+                <div className=' grid grid-cols-3 gap-4 p-5'>
+                    {
+                        servies?.map(load=><Service key={load.id} data={load}></Service>)
+                    }
+                </div>
             </section>
+            {/* chef section  */}
+            <section className='p-5 '>
+                <h2 className='text-center text-4xl font-bold'>Available Chef </h2>
+                <div className=' grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4 '>
+                    {
+                        loader.map(load=><ChefCard key={load._id} data={load}></ChefCard>)
+                    }
+                </div>
+            </section>
+            {/* review section  */}
+            <section className='bg-slate-100 p-5 my-5'>
+                <h2 className='text-center text-4xl font-bold'>Review & Ratings </h2>
+                <div className=' grid grid-cols-3 gap-4 p-5'>
+                    {
+                        reviews?.map(load=><Review key={load.id} data={load}></Review>)
+                    }
+                </div>
+            </section>
+
+
         </div>
     );
 };
