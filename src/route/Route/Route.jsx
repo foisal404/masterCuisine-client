@@ -32,19 +32,20 @@ export const router = createBrowserRouter([
         {
           path:'/blog',
           element:<Blog></Blog>
+        },
+        {
+          path:'/chef/:id',
+          element:<PrivateRoute><Chef></Chef></PrivateRoute>,
+          loader:({params})=> handlerRecipies(params.id)
         }
       ]
     },
-    {
-        path:'/chef',
-        element:<ChefLayout></ChefLayout>,
-        errorElement:<Errorpage>Chef Id not found</Errorpage>,
-        children:[
-            {
-                path:'/chef/:id',
-                element:<PrivateRoute><Chef></Chef></PrivateRoute>,
-                loader:({params})=> handlerRecipies(params.id)
-            }
-        ]
-    }
+    // {
+    //     path:'/chef',
+    //     element:<ChefLayout></ChefLayout>,
+    //     errorElement:<Errorpage>Chef Id not found</Errorpage>,
+    //     children:[
+            
+    //     ]
+    // }
   ]);

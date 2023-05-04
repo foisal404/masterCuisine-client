@@ -37,7 +37,6 @@ const Login = () => {
             const loggUser=result.user;
             console.log(loggUser)
             console.log('successful login');
-            navigate(from)
         })
         .catch(error=>{
             console.error(error.message);
