@@ -6,7 +6,8 @@
 
 - project run firebase authentication
 - project run server on vercel
-- project has live server
+- use react router
+- project use daisy Ui tailwind Library
 - project run react libaries 
 
 [Firebase deployed link](https://master-cuisine-336f3.web.app)
