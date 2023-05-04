@@ -39,7 +39,7 @@ const Header = () => {
                         <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                         </div>
                     </label>
-                    <a className="btn">Get started</a>
+                    <button className='bg-slate-500 text-white px-3 py-2 rounded'><ActiveLink to='/login'>login</ActiveLink></button>
                 </div>
             </div>
         </nav>

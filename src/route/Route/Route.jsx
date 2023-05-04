@@ -5,6 +5,8 @@ import ChefLayout from "../../layout/ChefLayout";
 import Chef from "../../pages/Chef/Chef/Chef";
 import handlerRecipies from "../../Hooks/Hooks";
 import Errorpage from "../../components/ErrorPage/Errorpage";
+import Login from "../../pages/Login/Login";
+import Register from "../../pages/Register/Register";
 
 export const router = createBrowserRouter([
     {
@@ -16,6 +18,14 @@ export const router = createBrowserRouter([
             path:"/",
             element:<Home></Home>,
             loader:()=> fetch('http://localhost:5000/chefs')
+        },
+        {
+          path:'/login',
+          element:<Login></Login>
+        },
+        {
+          path:'/register',
+          element:<Register></Register>
         }
       ]
     },
