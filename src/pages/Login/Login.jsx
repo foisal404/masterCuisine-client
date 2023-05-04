@@ -4,13 +4,22 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
 
 const Login = () => {
-    const {githubIN,googleIN}=useContext(AuthContext)
+    const {githubIN,googleIN,logIn}=useContext(AuthContext)
     const handleForm=event=>{
         event.preventDefault();
         const form=event.target;
         const email=form.email.value;
         const password=form.password.value;
-        console.log('submit form',email,password)
+        // console.log('submit form',email,password)
+        logIn(email,password)
+        .then(result=>{
+            const loggUser=result.user;
+            console.log(loggUser)
+            console.log('successful login');
+        })
+        .catch(error=>{
+            console.error(error.message);
+        })
         
     }
     const handlerGithub=()=>{
