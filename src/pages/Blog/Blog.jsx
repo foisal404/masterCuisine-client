@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Document, Page } from 'react-pdf';
+
 
 const Blog = () => {
+    const [numPages, setNumPages] = useState(null);
+  const [pageNumber, setPageNumber] = useState(1);
+
+  function onDocumentLoadSuccess({ numPages }) {
+    setNumPages(numPages);
+  }
     return (
         <div className='p-5 min-h-[83vh]'>
             <h2 className='text-4xl text-center font-bold'>Blog Page</h2>
+            <div>
+                <Document file="somefile.pdf" onLoadSuccess={onDocumentLoadSuccess}>
+                    <Page pageNumber={pageNumber} />
+                </Document>
+                <p>
+                    Page {pageNumber} of {numPages}
+                </p>
+                </div>
             <div className='p-5'>
 
                 <h2 className='text-xl font-medium text-gray-600'> Tell us the differences between uncontrolled and controlled components.</h2>

@@ -6,7 +6,7 @@
 
 - project run firebase authentication
 - project run server on vercel
-- use react router
+- use react router ,daisyUI
 - project use daisy Ui tailwind Library
 - project run react libaries 
 
